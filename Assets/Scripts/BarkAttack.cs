@@ -5,8 +5,29 @@ using UnityEngine;
 
 public class BarkAttack : MonoBehaviour
 {
-    [SerializeField] Transform nose;
-    [SerializeField] float barkRange = 100f;
+    [SerializeField] float barkForce = 700f;
+    [SerializeField] float explosionRadius = 15f;
+    [SerializeField] float upwardsForce = 2f;
+
+    List<GameObject> affectedObjects = new List<GameObject>();
+
+    void OnTriggerEnter(Collider other)
+    {
+        Rigidbody rb = other.GetComponent<Rigidbody>(); 
+        if (rb != null)
+        {
+            affectedObjects.Add(other.gameObject);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        Rigidbody rb = other.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            affectedObjects.Remove(other.gameObject);
+        }
+    }
 
     void Update()
     {
@@ -16,10 +37,23 @@ public class BarkAttack : MonoBehaviour
         }
     }
 
+
+
     void ShootBark()
     {
-        RaycastHit hit;
-        Physics.Raycast(nose.position, nose.forward, out hit, barkRange);
-        Debug.Log($"Moose has barked at: {hit.transform.name}");
+        Debug.Log("BARK");
+        foreach (GameObject item in affectedObjects)
+        {
+            if (!item.CompareTag("Player"))
+            {
+                Rigidbody rb = item.GetComponent<Rigidbody>();
+                rb.AddExplosionForce(
+                    barkForce,
+                    transform.position,
+                    explosionRadius,
+                    upwardsForce
+                                    );
+            }
+        }
     }
 }
