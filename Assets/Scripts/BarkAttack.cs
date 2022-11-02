@@ -8,6 +8,7 @@ public class BarkAttack : MonoBehaviour
     [SerializeField] float barkForce = 700f;
     [SerializeField] float explosionRadius = 15f;
     [SerializeField] float upwardsForce = 2f;
+    [SerializeField] ParticleSystem forceSmoke;
 
     List<GameObject> affectedObjects = new List<GameObject>();
 
@@ -42,6 +43,7 @@ public class BarkAttack : MonoBehaviour
     void ShootBark()
     {
         Debug.Log("BARK");
+        forceSmoke.Play();
         foreach (GameObject item in affectedObjects)
         {
             if (!item.CompareTag("Player"))

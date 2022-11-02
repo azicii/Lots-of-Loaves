@@ -1,49 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &593497772339929851
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3032641920963288101}
-  - component: {fileID: 77039110302892298}
-  m_Layer: 0
-  m_Name: BarkArea
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3032641920963288101
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593497772339929851}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5593004440852532577}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &77039110302892298
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593497772339929851}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.08, y: 3.97, z: 5.27}
-  m_Center: {x: 0, y: 0.22, z: 2.95}
 --- !u!1 &821011181796508945
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +636,6 @@ GameObject:
   - component: {fileID: 5593004440852532577}
   - component: {fileID: 5593004440852532590}
   - component: {fileID: 5593004440852532591}
-  - component: {fileID: 2085436263}
   m_Layer: 0
   m_Name: Moose
   m_TagString: Untagged
@@ -756,17 +711,65 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2085436263
-MonoBehaviour:
+--- !u!1001 &4434569115924304830
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5593004440852532577}
+    m_Modifications:
+    - target: {fileID: 1701475414770159515, guid: f0b6847f4f2764848aefe4169c70f69d, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701475414770159515, guid: f0b6847f4f2764848aefe4169c70f69d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701475414770159515, guid: f0b6847f4f2764848aefe4169c70f69d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701475414770159515, guid: f0b6847f4f2764848aefe4169c70f69d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701475414770159515, guid: f0b6847f4f2764848aefe4169c70f69d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701475414770159515, guid: f0b6847f4f2764848aefe4169c70f69d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701475414770159515, guid: f0b6847f4f2764848aefe4169c70f69d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701475414770159515, guid: f0b6847f4f2764848aefe4169c70f69d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701475414770159515, guid: f0b6847f4f2764848aefe4169c70f69d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701475414770159515, guid: f0b6847f4f2764848aefe4169c70f69d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701475414770159515, guid: f0b6847f4f2764848aefe4169c70f69d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870357937492373829, guid: f0b6847f4f2764848aefe4169c70f69d, type: 3}
+      propertyPath: m_Name
+      value: BarkAbility
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f0b6847f4f2764848aefe4169c70f69d, type: 3}
+--- !u!4 &3032641920963288101 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1701475414770159515, guid: f0b6847f4f2764848aefe4169c70f69d, type: 3}
+  m_PrefabInstance: {fileID: 4434569115924304830}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5593004440852532578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a95f3af66fffe30488f8a4d2ebb3168a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nose: {fileID: 8534749020323947119}
-  barkRange: 100
