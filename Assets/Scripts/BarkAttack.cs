@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BarkAttack : MonoBehaviour
 {
@@ -48,14 +49,39 @@ public class BarkAttack : MonoBehaviour
         {
             if (!item.CompareTag("Player"))
             {
-                Rigidbody rb = item.GetComponent<Rigidbody>();
-                rb.AddExplosionForce(
-                    barkForce,
-                    transform.position,
-                    explosionRadius,
-                    upwardsForce
-                                    );
+                if (item.CompareTag("Enemy"))
+                {
+                    KillEnemy(item);
+                }
+
+                ApplyBarkForce(item);
             }
         }
+    }
+
+    void ApplyBarkForce(GameObject item)
+    {
+        Rigidbody rb = item.GetComponent<Rigidbody>();
+        var forceModifier = item.GetComponent<ForceModifier>();
+
+        //Check to see if item in affectedObjects has a forceModifier script attached, if not just just default barkForce
+        float forwardForce = forceModifier != null ? barkForce * forceModifier.forwardMod : barkForce;
+        float upForce = forceModifier != null ? upwardsForce * forceModifier.upwardsMod : upwardsForce;
+
+        rb.AddExplosionForce(
+            forwardForce,
+            transform.position,
+            explosionRadius,
+            upForce
+                            );
+    }
+
+    void KillEnemy(GameObject item)
+    {
+        item.GetComponent<NavMeshAgent>().enabled = false;
+        item.GetComponent<EnemyAI>().enabled = false;
+        ApplyBarkForce(item);
+
+        Debug.Log("Enemy slain");
     }
 }
