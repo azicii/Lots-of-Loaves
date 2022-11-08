@@ -12,7 +12,6 @@ public class BarkAttack : MonoBehaviour
     [SerializeField] ParticleSystem forceSmoke;
 
     List<GameObject> affectedObjects = new List<GameObject>();
-    bool justDetachedFromNavMesh = false;
 
     void OnTriggerEnter(Collider other)
     {
@@ -52,6 +51,11 @@ public class BarkAttack : MonoBehaviour
                 {
                     KillEnemy(item);
                 }
+
+                if (item.CompareTag("Brick"))
+                {
+                    item.GetComponent<Rigidbody>().isKinematic = false;
+                }
                 ApplyBarkForce(item);
             }
         }
@@ -76,17 +80,9 @@ public class BarkAttack : MonoBehaviour
 
     void KillEnemy(GameObject item)
     {
-        
+        Debug.Log("Enemy slain");
         item.GetComponent<NavMeshAgent>().enabled = false;
-        justDetachedFromNavMesh = true;
         item.GetComponent<EnemyAI>().enabled = false;
-
-        if (justDetachedFromNavMesh)
-        {
-            ApplyBarkForce(item);
-            justDetachedFromNavMesh = false;
-
-            Debug.Log("Enemy slain");
-        }
+        ApplyBarkForce(item);
     }
 }
