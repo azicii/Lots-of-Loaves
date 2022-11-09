@@ -11,7 +11,7 @@ public class BarkAttack : MonoBehaviour
     [SerializeField] float upwardsForce = 2f;
     [SerializeField] ParticleSystem forceSmoke;
 
-    List<GameObject> affectedObjects = new List<GameObject>();
+    List<GameObject> affectedObjects = new();
 
     void OnTriggerEnter(Collider other)
     {

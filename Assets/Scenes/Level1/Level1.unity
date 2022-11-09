@@ -231,6 +231,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7405846476849834440, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
   m_PrefabInstance: {fileID: 221296489}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &167414156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 593497772339929851, guid: 1ba6b20531051c348adc8eeff1452c41, type: 3}
+  m_PrefabInstance: {fileID: 5593004439314085383}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &167414157 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3032641920963288101, guid: 1ba6b20531051c348adc8eeff1452c41, type: 3}
+  m_PrefabInstance: {fileID: 5593004439314085383}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &167414160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167414156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0484b340733eb4eb57633f9ca6f9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frostVFX: {fileID: 0}
 --- !u!1001 &186001543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -496,6 +519,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5862bbfe91a75054ca72c13b555b6ac5, type: 3}
   m_PrefabInstance: {fileID: 1818862964}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &333679060
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 167414157}
+    m_Modifications:
+    - target: {fileID: 1920325297268671248, guid: 12d93ffa971edff47b3e5e07f4df5a79, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920325297268671248, guid: 12d93ffa971edff47b3e5e07f4df5a79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920325297268671248, guid: 12d93ffa971edff47b3e5e07f4df5a79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920325297268671248, guid: 12d93ffa971edff47b3e5e07f4df5a79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920325297268671248, guid: 12d93ffa971edff47b3e5e07f4df5a79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920325297268671248, guid: 12d93ffa971edff47b3e5e07f4df5a79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920325297268671248, guid: 12d93ffa971edff47b3e5e07f4df5a79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920325297268671248, guid: 12d93ffa971edff47b3e5e07f4df5a79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920325297268671248, guid: 12d93ffa971edff47b3e5e07f4df5a79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920325297268671248, guid: 12d93ffa971edff47b3e5e07f4df5a79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920325297268671248, guid: 12d93ffa971edff47b3e5e07f4df5a79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920325297268671343, guid: 12d93ffa971edff47b3e5e07f4df5a79, type: 3}
+      propertyPath: m_Name
+      value: Snow VFX
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 12d93ffa971edff47b3e5e07f4df5a79, type: 3}
 --- !u!1001 &395040743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -657,6 +737,10 @@ PrefabInstance:
     - target: {fileID: 5166817954821482663, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166817954821482663, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5166817954821482664, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
       propertyPath: m_BaseOffset
@@ -1189,6 +1273,10 @@ PrefabInstance:
     - target: {fileID: 5166817954821482663, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166817954821482663, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5166817954821482664, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
       propertyPath: m_BaseOffset
@@ -1749,13 +1837,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1516322905}
     m_Modifications:
+    - target: {fileID: 206218530, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5166817954821482663, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5166817954821482664, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
-      propertyPath: m_BaseOffset
-      value: 0.49
       objectReference: {fileID: 0}
     - target: {fileID: 5166817954821482667, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
       propertyPath: m_RootOrder
@@ -1832,7 +1920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1516322905
 Transform:
   m_ObjectHideFlags: 0
@@ -2137,6 +2225,10 @@ PrefabInstance:
     - target: {fileID: 5166817954821482663, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
       propertyPath: m_Name
       value: Enemy (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166817954821482663, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5166817954821482664, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
       propertyPath: m_BaseOffset
@@ -2495,6 +2587,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 593497772339929851, guid: 1ba6b20531051c348adc8eeff1452c41, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5593004439095020956, guid: 1ba6b20531051c348adc8eeff1452c41, type: 3}
       propertyPath: m_Name
       value: Moose Rig
