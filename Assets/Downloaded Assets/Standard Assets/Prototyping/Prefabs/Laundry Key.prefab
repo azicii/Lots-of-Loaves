@@ -130,11 +130,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: {fileID: 0}
-  rotationSpeed: 1
-  explosionForce: 500
+  rotationSpeed: 0.5
+  explosionForce: 400
   explosionRadius: 8
   upForce: 1
-  explosion: {fileID: 0}
+  explosion: {fileID: 739748795492186441}
 --- !u!1001 &49677728253123926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -197,5 +197,10 @@ PrefabInstance:
 --- !u!4 &739748795491951977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 789361650939770943, guid: 8427f3382c7a8394f88b1acd070c23ec, type: 3}
+  m_PrefabInstance: {fileID: 49677728253123926}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &739748795492186441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 789361650939667487, guid: 8427f3382c7a8394f88b1acd070c23ec, type: 3}
   m_PrefabInstance: {fileID: 49677728253123926}
   m_PrefabAsset: {fileID: 0}

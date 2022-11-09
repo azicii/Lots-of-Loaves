@@ -8,8 +8,8 @@ public class LaundryKey : MonoBehaviour
     [SerializeField] float rotationSpeed = 0.5f;
     [SerializeField] float explosionForce = 500f;
     [SerializeField] float explosionRadius = 10f;
-    [SerializeField] float upForce = 5f;
     [SerializeField] GameObject explosion;
+
 
     void Update()
     {
@@ -18,9 +18,9 @@ public class LaundryKey : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
-            key.gameObject.SetActive(true);
+            key.SetActive(true);
             Explosion();
             GetComponent<Renderer>().enabled = false;
             GetComponent<MeshCollider>().enabled = false;
@@ -35,19 +35,16 @@ public class LaundryKey : MonoBehaviour
         {
             explosion.Play();
         }
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+
+        Collider[] colliders = Physics.OverlapSphere(this.gameObject.transform.position, explosionRadius);
         foreach (Collider item in colliders)
         {
-            if (item.gameObject.CompareTag("Player"))
-            {
-                return;
-            }
-
             Rigidbody rb = item.GetComponent<Rigidbody>();
-            if (rb != null)
+            if (rb != null && !item.gameObject.CompareTag("Player"))
             {
                 rb.isKinematic = false;
-                rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, upForce);
+                rb.velocity = Vector3.zero;
+                rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
             }
         }
     }
