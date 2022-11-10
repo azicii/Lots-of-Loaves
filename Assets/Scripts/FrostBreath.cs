@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class FrostBreath : MonoBehaviour
 {
@@ -45,7 +46,8 @@ public class FrostBreath : MonoBehaviour
             {
                  if (item.GetComponent<Freeze>() != null)
                  {
-                    item.GetComponent<Freeze>().FreezeGameObject();
+                    var freeze = item.GetComponent<Freeze>();
+                    freeze.FreezeSignal(freeze.timeWhileFrozen);
                  }
             }
         }

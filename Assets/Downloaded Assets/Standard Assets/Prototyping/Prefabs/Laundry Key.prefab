@@ -115,7 +115,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &1109694116
 MonoBehaviour:
@@ -132,8 +132,7 @@ MonoBehaviour:
   key: {fileID: 0}
   rotationSpeed: 0.5
   explosionForce: 400
-  explosionRadius: 8
-  upForce: 1
+  explosionRadius: 10
   explosion: {fileID: 739748795492186441}
 --- !u!1001 &49677728253123926
 PrefabInstance:
@@ -190,9 +189,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 789361650934174199, guid: 8427f3382c7a8394f88b1acd070c23ec, type: 3}
-    - {fileID: 789361650934174197, guid: 8427f3382c7a8394f88b1acd070c23ec, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8427f3382c7a8394f88b1acd070c23ec, type: 3}
 --- !u!4 &739748795491951977 stripped
 Transform:

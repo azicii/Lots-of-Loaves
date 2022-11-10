@@ -5,25 +5,51 @@ using UnityEngine.AI;
 
 public class Freeze : MonoBehaviour
 {
-    [SerializeField] float timeWhileFrozen = 2f;
+    public float timeWhileFrozen = 2f;
 
-    public void FreezeGameObject()
+    public void FreezeSignal(float timeFrozen)
     {
-        if (TryGetComponent(out NavMeshAgent navMeshAgent))
-        {
-            navMeshAgent.isStopped = true;
-        }
+        StartCoroutine(FreezeGameObject(timeFrozen));
+    }
 
-        if (TryGetComponent(out EnemyAI enemyAI))
+    IEnumerator FreezeGameObject(float timeFrozen)
+    {
+        if (TryGetComponent(out NavMeshAgent navMeshAgent) &&
+            TryGetComponent(out EnemyAI enemyAI) &&
+            TryGetComponent(out Rigidbody rigidBody))
         {
-            enemyAI.enabled = false;
-        }
+            StopAllMovement(navMeshAgent, enemyAI, rigidBody);
+            RenderIceCube(true);
 
-        if (TryGetComponent(out Rigidbody rigidBody))
-        {
-            rigidBody.freezeRotation = true;
-            rigidBody.velocity = Vector3.zero;
+            yield return new WaitForSeconds(timeFrozen);
+
+            ResumeAllMovement(navMeshAgent, enemyAI, rigidBody);
+            RenderIceCube(false);
         }
     }
 
+    void StopAllMovement(NavMeshAgent navMeshAgent, EnemyAI enemyAI, Rigidbody rigidBody)
+    {
+        Debug.Log($"{gameObject.name} is frozen");
+        navMeshAgent.isStopped = true;
+        enemyAI.enabled = false;
+        rigidBody.freezeRotation = true;
+        rigidBody.velocity = Vector3.zero;
+    }
+
+    void ResumeAllMovement(NavMeshAgent navMeshAgent, EnemyAI enemyAI, Rigidbody rigidBody)
+    {
+        Debug.Log($"{gameObject.name} is unfrozen");
+        navMeshAgent.isStopped = false;
+        enemyAI.enabled = true;
+        rigidBody.freezeRotation = false;
+        rigidBody.velocity = new Vector3(1, 1, 1);
+    }
+
+    void RenderIceCube(bool isFrozen)
+    {
+
+
+
+    }
 }
