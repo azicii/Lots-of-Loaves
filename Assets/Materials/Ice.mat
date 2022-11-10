@@ -11,6 +11,7 @@ Material:
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _ALPHABLEND_ON
+  - _DETAIL_MULX2
   - _EMISSION
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -28,8 +29,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: eaffc20b940751240bb1cde78f2b8aee, type: 3}
+        m_Scale: {x: 100, y: 100}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
         m_Texture: {fileID: 0}
@@ -41,15 +42,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _Fresnel:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5dcef4630307f1f468484c2e9d67cf30, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: fe04479d93e6897438d3c2856a88b89e, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -107,7 +108,7 @@ Material:
     - _GlossyReflections: 1
     - _InvFade: 1
     - _LightingEnabled: 0
-    - _Metallic: 0
+    - _Metallic: 0.4
     - _Mode: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02

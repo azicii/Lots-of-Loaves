@@ -46,6 +46,7 @@ public class FrostBreath : MonoBehaviour
             {
                  if (item.GetComponent<Freeze>() != null)
                  {
+                    //Debug.Log($"{item.name} WAS FROZEN");
                     var freeze = item.GetComponent<Freeze>();
                     freeze.FreezeSignal(freeze.timeWhileFrozen);
                  }
