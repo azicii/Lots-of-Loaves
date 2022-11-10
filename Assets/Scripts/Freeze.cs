@@ -8,117 +8,89 @@ using Component = UnityEngine.Component;
 public class Freeze : MonoBehaviour
 {
     [SerializeField] GameObject iceContainer;
+    IceContainer iceScript;
 
     public float timeWhileFrozen = 2f;
-    IceContainer iceScript;
+    public bool isFreezable;
 
     void Start()
     {
         iceScript = iceContainer.GetComponent<IceContainer>();
     }
 
-    public void FreezeSignal(float timeFrozen)
+    public void FreezeSignal(float timeFrozen, List<Component> components)
     {
-        StartCoroutine(FreezeGameObject(timeFrozen));
+        StartCoroutine(FreezeGameObject(timeFrozen, components));
     }
 
-    IEnumerator FreezeGameObject(float timeFrozen)
+    IEnumerator FreezeGameObject(float timeFrozen, List<Component> components)
     {
-        List<Component> components = new();
-
-        NavMeshAgent navMeshAgent = GetComponent<NavMeshAgent>();
-        EnemyAI enemyAI = GetComponent<EnemyAI>();
-        Rigidbody rigidBody = GetComponent<Rigidbody>();
-        Collider collider = GetComponent<Collider>();
-
-        if (navMeshAgent != null)
-        {
-            components.Add(navMeshAgent);
-        }
-        if (enemyAI != null)
-        {
-            components.Add(enemyAI);
-        }
-        if (rigidBody != null)
-        {
-            components.Add(rigidBody);
-        }
-        if (collider != null)
-        {
-            components.Add(collider);
-        }
-
-        Debug.Log(components.Count);
+        //Debug.Log(components.Count);
+        
         StopAllMovement(components);
-        iceScript.EnableIceCube(true);
-
         yield return new WaitForSeconds(timeFrozen);
-
         ResumeAllMovement(components);
-        iceScript.EnableIceCube(false);
     }
 
     void StopAllMovement(List<Component> components)
     {
-        Debug.Log($"{gameObject.name} is frozen");
+        iceScript.EnableIceCube(true);
         foreach (Component component in components)
         {
-            if (component.GetType().Name == "NavMeshAgent")
+            if (component is NavMeshAgent)
             {
                 var nMA = component as NavMeshAgent;
                 nMA.isStopped = true;
             }
-            if (component.GetType().Name == "EnemyAI")
+            if (component is EnemyAI)
             {
                 var eAI = component as EnemyAI;
                 eAI.enabled = false;
             }
-            if (component.GetType().Name == "RigidBody")
+            if (component is Rigidbody)
             {
                 var rb = component as Rigidbody;
                 rb.freezeRotation = true;
                 rb.isKinematic = true;
                 rb.velocity = Vector3.zero;
             }
-            if (component.GetType().Name == "BoxCollider")
+            if (component is Collider)
             {
-                var boxCollider = component as Collider;
-                boxCollider.enabled = false;
+                var collider = component as Collider;
+                collider.isTrigger = true;
             }
-
-            Debug.Log($"{component.name} has a {component.GetType().Name}");
+            //Debug.Log($"{component.name} has a {component.GetType().Name}");
         }
     }
 
     void ResumeAllMovement(List<Component> components)
     {
-        Debug.Log($"{gameObject.name} is unfrozen");
+        iceScript.EnableIceCube(false);
         foreach (Component component in components)
         {
-            if (component.GetType().Name == "NavMeshAgent")
+            if (component is NavMeshAgent)
             {
                 var nMA = component as NavMeshAgent;
                 nMA.isStopped = false;
             }
-            if (component.GetType().Name == "EnemyAI")
+            if (component is EnemyAI)
             {
                 var eAI = component as EnemyAI;
                 eAI.enabled = true;
             }
-            if (component.GetType().Name == "RigidBody")
+            if (component is Rigidbody)
             {
                 var rb = component as Rigidbody;
                 rb.freezeRotation = false;
                 rb.isKinematic = false;
                 rb.velocity = new Vector3(1, 1, 1);
             }
-            if (component.GetType().Name == "Box Collider")
+            if (component is Collider)
             {
-                var boxCollider = component as Collider;
-                boxCollider.enabled = true;
+                var collider = component as Collider;
+                collider.isTrigger = false;
             }
-
-            Debug.Log($"{component.name} has a {component.GetType().Name}");
+            //Debug.Log($"{component.name} has a {component.GetType().Name}");
         }
     }
 }

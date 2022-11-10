@@ -1634,6 +1634,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7007591236292485129, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7405846476849542632, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
       propertyPath: m_Name
       value: Rock_01 (3)
@@ -1732,6 +1736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceContainer: {fileID: 1359738376}
   timeWhileFrozen: 2
+  isFreezable: 0
 --- !u!1001 &1359738375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1742,18 +1747,6 @@ PrefabInstance:
     - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.7228094
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.7228094
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.7228094
       objectReference: {fileID: 0}
     - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1799,6 +1792,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ice Container
       objectReference: {fileID: 0}
+    - target: {fileID: 5459482487177327239, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
 --- !u!1 &1359738376 stripped
@@ -1813,6 +1810,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1516322905}
     m_Modifications:
+    - target: {fileID: 877661985, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
+      propertyPath: abilities
+      value: 
+      objectReference: {fileID: 1573693096}
     - target: {fileID: 2630095213515393238, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
       propertyPath: m_Convex
       value: 1
@@ -1873,6 +1874,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 2085436262}
+    - target: {fileID: 8576347179178316072, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
 --- !u!4 &1398375279 stripped
@@ -1956,6 +1961,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1573693096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9071942759186523246, guid: 1ba6b20531051c348adc8eeff1452c41, type: 3}
+  m_PrefabInstance: {fileID: 5593004439314085383}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1620927275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1493958779012619316, guid: b9de24523a11d714db3851b5f0f9d527, type: 3}

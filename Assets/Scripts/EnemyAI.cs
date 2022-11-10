@@ -52,7 +52,7 @@ public class EnemyAI : MonoBehaviour
 
     void AttackTarget()
     {
-        Debug.Log("ATTACK");
+
     }
 
     void OnDrawGizmosSelected()
