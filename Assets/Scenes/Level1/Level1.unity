@@ -1712,11 +1712,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
---- !u!4 &1299648437 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7405846476849834440, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
-  m_PrefabInstance: {fileID: 1299648436}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1299648438 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7405846476849542632, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
@@ -1734,75 +1729,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2549aa9987a9db446a02b596858a88c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iceContainer: {fileID: 1359738376}
+  iceContainer: {fileID: 1781540464373607289, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
+  icePositionOffset: 1
   timeWhileFrozen: 2
   isFreezable: 0
---- !u!1001 &1359738375
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1299648437}
-    m_Modifications:
-    - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.43
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149326802087610741, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1781540464373607289, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_Name
-      value: Ice Container
-      objectReference: {fileID: 0}
-    - target: {fileID: 5459482487177327239, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-      propertyPath: m_Convex
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
---- !u!1 &1359738376 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1781540464373607289, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-  m_PrefabInstance: {fileID: 1359738375}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1374841307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1814,6 +1744,10 @@ PrefabInstance:
       propertyPath: abilities
       value: 
       objectReference: {fileID: 1573693096}
+    - target: {fileID: 877661985, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
+      propertyPath: icePositionOffset
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2630095213515393238, guid: f161cf984e38abe4aa5490a95b79cd3c, type: 3}
       propertyPath: m_Convex
       value: 1
@@ -2577,6 +2511,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 593497772339929851, guid: 1ba6b20531051c348adc8eeff1452c41, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5593004439095020956, guid: 1ba6b20531051c348adc8eeff1452c41, type: 3}
       propertyPath: m_Name
       value: Moose Rig

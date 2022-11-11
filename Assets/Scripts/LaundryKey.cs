@@ -10,7 +10,6 @@ public class LaundryKey : MonoBehaviour
     [SerializeField] float explosionRadius = 10f;
     [SerializeField] GameObject explosion;
 
-
     void Update()
     {
         transform.Rotate(0, rotationSpeed, 0);

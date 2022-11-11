@@ -42,7 +42,7 @@ public class FrostBreath : MonoBehaviour
         }
     }
 
-    void ShootFrost(List<GameObject> frozenObjects)
+    public void ShootFrost(List<GameObject> frozenObjects)
     {
         Debug.Log("FREEZE");
         frostVFX.Play();
@@ -59,10 +59,15 @@ public class FrostBreath : MonoBehaviour
     {
         List<Component> components = new();
 
+        Freeze freeze = item.GetComponent<Freeze>();
+        
+        //Collect components from gameobject "item"
+        //and store in "components" list
         NavMeshAgent navMeshAgent = item.GetComponent<NavMeshAgent>();
         EnemyAI enemyAI = item.GetComponent<EnemyAI>();
         Rigidbody rigidBody = item.GetComponent<Rigidbody>();
         Collider collider = item.GetComponent<Collider>();
+        Transform transform = item.GetComponent<Transform>();
 
         if (navMeshAgent != null)
         {
@@ -80,11 +85,14 @@ public class FrostBreath : MonoBehaviour
         {
             components.Add(collider);
         }
-
-        if (item.GetComponent<Freeze>().isFreezable)
+        if(transform != null)
         {
-            var freeze = item.GetComponent<Freeze>();
-            freeze.FreezeSignal(freeze.timeWhileFrozen, components);
+            components.Add(transform);
+        }
+
+        if (freeze.isFreezable && !freeze.isFrozen)
+        {
+            freeze.FreezeSignal(components);
         }
         else
         {
