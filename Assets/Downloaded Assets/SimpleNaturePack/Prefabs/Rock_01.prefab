@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7405846476847541032}
   - component: {fileID: 7007591236292485129}
   - component: {fileID: 9084658189513123309}
+  - component: {fileID: 7665866259135413534}
   m_Layer: 0
   m_Name: Rock_01
   m_TagString: Untagged
@@ -30,6 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,6 +55,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -113,3 +116,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7665866259135413534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7405846476849542632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2549aa9987a9db446a02b596858a88c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iceContainer: {fileID: 1781540464373607289, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
+  icePositionOffset: 0.7
+  timeWhileFrozen: 100
+  isFreezable: 0
+  isFrozen: 0

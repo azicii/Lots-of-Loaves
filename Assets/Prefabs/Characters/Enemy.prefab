@@ -151,7 +151,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iceContainer: {fileID: 1781540464373607289, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
-  icePositionOffset: 0
-  timeWhileFrozen: 2
+  icePositionOffset: 0.7
+  timeWhileFrozen: 20
   isFreezable: 0
+  isFrozen: 0
