@@ -9,16 +9,10 @@ public class Freeze : MonoBehaviour
 {
     [SerializeField] GameObject iceContainer;
     [SerializeField] float icePositionOffset = 1f;
-    IceContainer iceScript;
 
     public float timeWhileFrozen = 2f;
     public bool isFreezable;
     public bool isFrozen;
-
-    void Start()
-    {
-        iceScript = iceContainer.GetComponent<IceContainer>();
-    }
 
     public void FreezeSignal(List<Component> components)
     {
@@ -28,16 +22,17 @@ public class Freeze : MonoBehaviour
     IEnumerator FreezeGameObject(List<Component> components)
     {
         //Debug.Log(components.Count);
-        RestrictMovement(components, true);
+        HandleFreeze(components, true);
         isFrozen = true;
+
         yield return new WaitForSeconds(timeWhileFrozen);
-        RestrictMovement(components, false);
+
+        HandleFreeze(components, false);
         isFrozen = false;
     }
 
-    void RestrictMovement(List<Component> components, bool isFrozen)
+    void HandleFreeze(List<Component> components, bool isFrozen)
     {
-        //iceScript.EnableIceCube(true);
         foreach (Component component in components)
         {
             if (component is NavMeshAgent)
