@@ -38,7 +38,7 @@ public class Freeze : MonoBehaviour
             if (component is NavMeshAgent)
             {
                 var nMA = component as NavMeshAgent;
-                nMA.isStopped = isFrozen;
+                nMA.enabled = !isFrozen;
             }
             if (component is EnemyAI)
             {
@@ -75,7 +75,7 @@ public class Freeze : MonoBehaviour
                                           transform.position.y - icePositionOffset, 
                                           transform.position.z);
 
-        GameObject myIceContainer = Instantiate(iceContainer, icePosition, transform.rotation);
+        GameObject myIceContainer = Instantiate(iceContainer, icePosition, Quaternion.identity);
         this.gameObject.transform.parent = myIceContainer.transform;
 
         yield return new WaitForSeconds(timeWhileFrozen);
