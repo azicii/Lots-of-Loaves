@@ -50,7 +50,7 @@ public class BarkAttack : MonoBehaviour
             {
                 if (item.CompareTag("Enemy"))
                 {
-                    item.GetComponent<Death>().StopMovement();
+                    item.GetComponent<EnemyAI>().Die();
                     ApplyBarkForce(item);
                 }
 

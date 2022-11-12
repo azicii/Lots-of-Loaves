@@ -35,7 +35,7 @@ public class Freeze : MonoBehaviour
     {
         foreach (Component component in components)
         {
-            if (!component.gameObject.GetComponent<Death>().isDead)
+            if (!component.gameObject.GetComponent<EnemyAI>().isDead)
             {
                 if (component is NavMeshAgent)
                 {

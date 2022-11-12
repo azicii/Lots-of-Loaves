@@ -12,6 +12,7 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
     bool isProvoked = false;
+    public bool isDead = false;
 
     void Start()
     {
@@ -53,6 +54,15 @@ public class EnemyAI : MonoBehaviour
     void AttackTarget()
     {
 
+    }
+
+    public void Die()
+    {
+        isDead = true;
+
+        Debug.Log($"{this.gameObject.name} was slain");
+        GetComponent<NavMeshAgent>().enabled = false;
+        GetComponent<EnemyAI>().enabled = false;
     }
 
     void OnDrawGizmosSelected()
