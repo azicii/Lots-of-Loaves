@@ -9,8 +9,8 @@ public class Freeze : MonoBehaviour
 {
     [SerializeField] GameObject iceContainer;
     [SerializeField] float icePositionOffset = 1f;
+    [SerializeField] float timeWhileFrozen = 2f;
 
-    public float timeWhileFrozen = 2f;
     public bool isFreezable;
     public bool isFrozen;
 
@@ -35,15 +35,18 @@ public class Freeze : MonoBehaviour
     {
         foreach (Component component in components)
         {
-            if (component is NavMeshAgent)
+            if (!component.gameObject.GetComponent<Death>().isDead)
             {
-                var nMA = component as NavMeshAgent;
-                nMA.enabled = !isFrozen;
-            }
-            if (component is EnemyAI)
-            {
-                var eAI = component as EnemyAI;
-                eAI.enabled = !isFrozen;
+                if (component is NavMeshAgent)
+                {
+                    var nMA = component as NavMeshAgent;
+                    nMA.enabled = !isFrozen;
+                }
+                if (component is EnemyAI)
+                {
+                    var eAI = component as EnemyAI;
+                    eAI.enabled = !isFrozen;
+                }
             }
             if (component is Rigidbody)
             {

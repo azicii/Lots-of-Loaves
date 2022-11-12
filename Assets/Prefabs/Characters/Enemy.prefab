@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 206218530}
   - component: {fileID: 206218529}
   - component: {fileID: 877661985}
+  - component: {fileID: 2046493513}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -182,6 +183,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceContainer: {fileID: 1781540464373607289, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
   icePositionOffset: 0.7
-  timeWhileFrozen: 20
+  timeWhileFrozen: 2
   isFreezable: 0
   isFrozen: 0
+--- !u!114 &2046493513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5166817954821482663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1185b5de43081f440be8d9eaa6a6423e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFlammable: 0
+  isEnflamed: 0

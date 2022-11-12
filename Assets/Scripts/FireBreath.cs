@@ -5,32 +5,30 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class FrostBreath : MonoBehaviour
+public class FireBreath : MonoBehaviour
 {
-    [SerializeField] ParticleSystem frostVFX;
-    public List<GameObject> affectedObjects = new();
+    [SerializeField] GameObject fireVFX;
+    List<GameObject> affectedObjects = new();
 
     void OnTriggerEnter(Collider other)
     {
-        Freeze freeze = other.GetComponent<Freeze>();
-        if (freeze != null 
-            && !other.CompareTag("Ice") 
+        Flammable fire = other.GetComponent<Flammable>();
+        if (fire != null
             && !affectedObjects.Contains(other.gameObject))
         {
             affectedObjects.Add(other.gameObject);
-            freeze.isFreezable = true;
-            //Debug.Log(affectedObjects.Count);
+            fire.isFlammable = true;
+            Debug.Log(affectedObjects.Count);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        Rigidbody rb = other.GetComponent<Rigidbody>();
-        Freeze freeze = other.GetComponent<Freeze>();
-        if (rb != null && freeze !=null)
+        Flammable fire = other.GetComponent<Flammable>();
+        if (fire != null)
         {
             affectedObjects.Remove(other.gameObject);
-            freeze.isFreezable = false;
+            fire.isFlammable = false;
             //Debug.Log(affectedObjects.Count);
         }
     }
@@ -39,29 +37,41 @@ public class FrostBreath : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            ShootFrost(affectedObjects);
+            ShootFlames(affectedObjects);
         }
     }
 
-    public void ShootFrost(List<GameObject> frozenObjects)
+    public void ShootFlames(List<GameObject> enflamedObjects)
     {
-        Debug.Log("FREEZE");
-        frostVFX.Play();
-        foreach (GameObject item in frozenObjects.ToList())
+        Debug.Log("BURNNN");
+        foreach (ParticleSystem fireFX in fireVFX.GetComponentsInChildren<ParticleSystem>())
+        {
+            fireFX.Play();
+        }
+
+        foreach (GameObject item in enflamedObjects.ToList())
         {
             if (!item.CompareTag("Player"))
             {
-                ApplyFreeze(item);
+                if (item.CompareTag("Enemy"))
+                {
+                    Debug.Log("Enemy slain");
+                    affectedObjects.Remove(item);
+                    Destroy(item);
+                }
+                else if (item.CompareTag("Flammable"))
+                {
+                    ApplyFlames(item);
+                }
             }
         }
     }
-
-    void ApplyFreeze(GameObject item)
+    void ApplyFlames(GameObject item)
     {
         List<Component> components = new();
 
-        Freeze freeze = item.GetComponent<Freeze>();
-        
+        Flammable fire = item.GetComponent<Flammable>();
+
         //Collect components from gameobject "item"
         //and store in "components" list
         NavMeshAgent navMeshAgent = item.GetComponent<NavMeshAgent>();
@@ -86,14 +96,14 @@ public class FrostBreath : MonoBehaviour
         {
             components.Add(collider);
         }
-        if(transform != null)
+        if (transform != null)
         {
             components.Add(transform);
         }
 
-        if (freeze.isFreezable && !freeze.isFrozen)
+        if (fire.isFlammable && !fire.isEnflamed)
         {
-            freeze.FreezeSignal(components);
+            fire.FireSignal(components);
         }
         else
         {

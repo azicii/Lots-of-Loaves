@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -43,13 +44,14 @@ public class BarkAttack : MonoBehaviour
     {
         Debug.Log("BARK");
         forceSmoke.Play();
-        foreach (GameObject item in affectedObjects)
+        foreach (GameObject item in affectedObjects.ToList())
         {
             if (!item.CompareTag("Player"))
             {
                 if (item.CompareTag("Enemy"))
                 {
-                    KillEnemy(item);
+                    item.GetComponent<Death>().StopMovement();
+                    ApplyBarkForce(item);
                 }
 
                 if (item.CompareTag("Brick"))
@@ -76,13 +78,5 @@ public class BarkAttack : MonoBehaviour
             explosionRadius,
             upForce
                             );
-    }
-
-    void KillEnemy(GameObject item)
-    {
-        Debug.Log("Enemy slain");
-        item.GetComponent<NavMeshAgent>().enabled = false;
-        item.GetComponent<EnemyAI>().enabled = false;
-        ApplyBarkForce(item);
     }
 }

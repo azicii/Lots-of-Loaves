@@ -73676,7 +73676,7 @@ GameObject:
   - component: {fileID: 1920325297268671342}
   - component: {fileID: 6775163740762971241}
   m_Layer: 0
-  m_Name: Snow VFX
+  m_Name: FrostBreathVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
