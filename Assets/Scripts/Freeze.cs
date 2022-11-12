@@ -35,19 +35,6 @@ public class Freeze : MonoBehaviour
     {
         foreach (Component component in components)
         {
-            if (!component.gameObject.GetComponent<EnemyAI>().isDead)
-            {
-                if (component is NavMeshAgent)
-                {
-                    var nMA = component as NavMeshAgent;
-                    nMA.enabled = !isFrozen;
-                }
-                if (component is EnemyAI)
-                {
-                    var eAI = component as EnemyAI;
-                    eAI.enabled = !isFrozen;
-                }
-            }
             if (component is Rigidbody)
             {
                 var rb = component as Rigidbody;
@@ -66,6 +53,23 @@ public class Freeze : MonoBehaviour
                 if (isFrozen)
                 {
                     StartCoroutine(GenerateIceContainer(tf));
+                }
+            }
+
+            if (component.gameObject.GetComponent<EnemyAI>() != null)
+            {
+                if (!component.gameObject.GetComponent<EnemyAI>().isDead)
+                {
+                    if (component is NavMeshAgent)
+                    {
+                        var nMA = component as NavMeshAgent;
+                        nMA.enabled = !isFrozen;
+                    }
+                    if (component is EnemyAI)
+                    {
+                        var eAI = component as EnemyAI;
+                        eAI.enabled = !isFrozen;
+                    }
                 }
             }
             //Debug.Log($"{component.name} has a {component.GetType().Name}");

@@ -37,6 +37,7 @@ public class FrostBreath : MonoBehaviour
 
     void Update()
     {
+        RemoveAffectedObjects();
         if (Input.GetMouseButtonDown(0))
         {
             ShootFrost(affectedObjects);
@@ -98,6 +99,17 @@ public class FrostBreath : MonoBehaviour
         else
         {
             components.Clear();
+        }
+    }
+
+    void RemoveAffectedObjects()
+    {
+        foreach (GameObject item in affectedObjects.ToList())
+        {
+            if (item == null)
+            {
+                affectedObjects.Remove(item);
+            }
         }
     }
 }

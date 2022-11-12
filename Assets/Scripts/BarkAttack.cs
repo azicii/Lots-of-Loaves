@@ -34,6 +34,7 @@ public class BarkAttack : MonoBehaviour
 
     void Update()
     {
+        RemoveAffectedObjects();
         if (Input.GetMouseButtonDown(0))
         {
             ShootBark();
@@ -50,7 +51,10 @@ public class BarkAttack : MonoBehaviour
             {
                 if (item.CompareTag("Enemy"))
                 {
-                    item.GetComponent<EnemyAI>().Die();
+                    if (!item.GetComponent<EnemyAI>().isDead)
+                    {
+                        item.GetComponent<EnemyAI>().Die();
+                    }
                     ApplyBarkForce(item);
                 }
 
@@ -78,5 +82,16 @@ public class BarkAttack : MonoBehaviour
             explosionRadius,
             upForce
                             );
+    }
+
+    void RemoveAffectedObjects()
+    {
+        foreach (GameObject item in affectedObjects.ToList())
+        {
+            if (item == null)
+            {
+                affectedObjects.Remove(item);
+            }
+        }
     }
 }
