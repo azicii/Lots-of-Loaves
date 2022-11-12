@@ -35,6 +35,7 @@ public class FireBreath : MonoBehaviour
 
     void Update()
     {
+        RemoveAffectedObjects();
         if (Input.GetMouseButtonDown(0))
         {
             ShootFlames(affectedObjects);
@@ -51,17 +52,30 @@ public class FireBreath : MonoBehaviour
 
         foreach (GameObject item in enflamedObjects.ToList())
         {
+            //if the object to burn is not a "trigger" or the playable character. Trigger 
+            //collider is active when the object gets frozen. This prevents frozen objects
+            //from getting burned and instead become unfrozen. 
             if (!item.CompareTag("Player"))
             {
-                if (item.CompareTag("Enemy"))
+                if (item.CompareTag("Enemy") && !item.GetComponent<Collider>().isTrigger)
                 {
-                    Debug.Log("Enemy slain");
+                    Debug.Log($"{item.name} slain");
                     affectedObjects.Remove(item);
                     Destroy(item);
                 }
-                else if (item.CompareTag("Flammable"))
+                if (item.CompareTag("Flammable"))
                 {
                     ApplyFlames(item);
+                }
+                if (item.CompareTag("Ice"))
+                {
+                    //eventually need to come back and fix this. right now you can "unfreeze" things with firebreath but
+                    //they will still be kinematic triggers
+                    //item.transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
+                    item.transform.GetChild(0).parent = null;
+
+                    Destroy(item);
+
                 }
             }
         }
@@ -108,6 +122,16 @@ public class FireBreath : MonoBehaviour
         else
         {
             components.Clear();
+        }
+    }
+    void RemoveAffectedObjects()
+    {
+        foreach (GameObject item in affectedObjects.ToList())
+        {
+            if (item == null)
+            {
+                affectedObjects.Remove(item);
+            }
         }
     }
 }

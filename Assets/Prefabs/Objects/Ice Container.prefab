@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9110022793169139638}
   - component: {fileID: 8051314411749741452}
   - component: {fileID: 8051314411749741453}
+  - component: {fileID: 3658738016152181648}
   m_Layer: 0
   m_Name: Ice Container
   m_TagString: Ice
@@ -128,3 +129,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a60a6bedd779bc45bd474c97f310c5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3658738016152181648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781540464373607289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1185b5de43081f440be8d9eaa6a6423e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFlammable: 0
+  isEnflamed: 0
