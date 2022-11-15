@@ -8,12 +8,15 @@ public class Player : MonoBehaviour
 {
     Rigidbody rb;
     RigidbodyFirstPersonController controller;
+    Collider _collider;
     public bool isFlying;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         controller = GetComponent<RigidbodyFirstPersonController>();
+        _collider = GetComponent<Collider>();    
+        
     }
     public void TakeDamage(Vector3 impactForce)
     {
@@ -29,10 +32,15 @@ public class Player : MonoBehaviour
         rb.AddForce(impactForce, ForceMode.Impulse);
         isFlying = true;
 
-        yield return new WaitUntil(() => rb.velocity == Vector3.zero);
+        yield return new WaitForSeconds(0.1f);
+        //yield return new WaitUntil(() => rb.velocity == Vector3.zero);
 
         controller.enabled = true;
-        isFlying = false;
+
+        if (rb.velocity.y == 0)
+        {
+            isFlying = false;
+        }
     }
 
    

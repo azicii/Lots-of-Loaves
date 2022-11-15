@@ -70,6 +70,7 @@ public class FrostBreath : MonoBehaviour
         Rigidbody rigidBody = item.GetComponent<Rigidbody>();
         Collider collider = item.GetComponent<Collider>();
         Transform transform = item.GetComponent<Transform>();
+        Animator animator = item.GetComponent<Animator>();
 
         if (navMeshAgent != null)
         {
@@ -90,6 +91,10 @@ public class FrostBreath : MonoBehaviour
         if(transform != null)
         {
             components.Add(transform);
+        }
+        if(animator != null)
+        {
+            components.Add(animator);
         }
 
         if (freeze.isFreezable && !freeze.isFrozen)

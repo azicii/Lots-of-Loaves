@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 108123457485720102}
   - component: {fileID: 466417841249911047}
   - component: {fileID: 679448538}
+  - component: {fileID: 679448539}
   m_Layer: 0
   m_Name: Rock_large
   m_TagString: Untagged
@@ -115,3 +116,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &679448539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108123457487656166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2549aa9987a9db446a02b596858a88c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iceContainer: {fileID: 1781540464373607289, guid: 0f9664de44c424b49a25c8c26faae4a7, type: 3}
+  icePositionOffset: 0.7
+  timeWhileFrozen: 2
+  isFreezable: 0
+  isFrozen: 0

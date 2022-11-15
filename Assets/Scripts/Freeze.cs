@@ -70,6 +70,11 @@ public class Freeze : MonoBehaviour
                         var eAI = component as EnemyAI;
                         eAI.enabled = !isFrozen;
                     }
+                    if (component is Animator)
+                    {
+                        var anim = component as Animator;
+                        anim.enabled = !isFrozen;
+                    }
                 }
             }
             //Debug.Log($"{component.name} has a {component.GetType().Name}");
