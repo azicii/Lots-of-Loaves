@@ -1,52 +1,52 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.LowLevel;
 
 public class AbilitySwitcher : MonoBehaviour
 {
     [SerializeField] int abilityIndex;
+    public GameObject[] abilities;
 
     void Start()
     {
         SetAbilityActive();
     }
-
     void Update()
     {
         int previousAbility = abilityIndex;
 
         ProcessKeyInput();
-        ProcessScrollWheel();
+        ProcessEandQkey();
 
         if (previousAbility != abilityIndex)
         {
             SetAbilityActive();
         }
     }
-
-    private void ProcessKeyInput()
+    void ProcessKeyInput()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && abilities.Length >= 1)
         {
             abilityIndex = 0;
+            SetAbilityActive();
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && abilities.Length >= 2)
         {
             abilityIndex = 1;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) && abilities.Length >= 3)
         {
             abilityIndex = 2;
         }
     }
-
-    private void ProcessScrollWheel()
+    void ProcessEandQkey()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (abilityIndex >= transform.childCount - 1)
+            if (abilityIndex >= abilities.Length - 1)
             {
                 abilityIndex = 0;
             }
@@ -55,11 +55,11 @@ public class AbilitySwitcher : MonoBehaviour
                 abilityIndex++;
             }
         }
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (abilityIndex == 0)
             {
-                abilityIndex = transform.childCount - 1;
+                abilityIndex = abilities.Length - 1;
             }
             else
             {
@@ -68,19 +68,57 @@ public class AbilitySwitcher : MonoBehaviour
         }
     }
 
-    private void SetAbilityActive()
+    ////If ever want to implement scroll wheel ability switch functionality,
+    ////uncomment the function below
+    //void ProcessScrollWheel()
+    //{
+    //    if (Input.GetAxis("Mouse ScrollWheel") < 0)
+    //    {
+    //        if (abilityIndex >= abilities.Length - 1)
+    //        {
+    //            abilityIndex = 0;
+    //        }
+    //        else
+    //        {
+    //            abilityIndex++;
+    //        }
+    //    }
+    //    if (Input.GetAxis("Mouse ScrollWheel") > 0)
+    //    {
+    //        if (abilityIndex == 0)
+    //        {
+    //            abilityIndex = abilities.Length - 1;
+    //        }
+    //        else
+    //        {
+    //            abilityIndex--;
+    //        }
+    //    }
+    //}
+
+    //This method is not very good performance wise. It adds a new item to the 
+    //array when it is called by creating a copy of the original array with one more 
+    //space and moving all elements to the new array. Since there are only 3 
+    //abilities in the game it is not a problem. 
+    public void AddNewAbility(GameObject ability)
+    {
+        abilities = abilities.Concat(new GameObject[] { ability }).ToArray();
+        abilityIndex = abilities.Length - 1;
+        SetAbilityActive();
+    }
+    void SetAbilityActive()
     {
         int currentAbility = 0;
 
-        foreach (Transform ability in transform)
+        foreach (GameObject ability in abilities)
         {
             if (abilityIndex == currentAbility)
             {
-                ability.gameObject.SetActive(true);
+                ability.SetActive(true);
             }
             else
             {
-                ability.gameObject.SetActive(false);
+                ability.SetActive(false);
             }
             currentAbility++;
         }

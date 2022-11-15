@@ -399,10 +399,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3165762
+  m_Radius: 0.3639065
   m_Height: 1.0184326
   m_Direction: 2
-  m_Center: {x: -0.047268867, y: -0.20668235, z: 3.0732403}
+  m_Center: {x: 0.000061392784, y: -0.20668232, z: 3.0732403}
 --- !u!114 &5593004439102126206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,9 +417,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 5593004439094824890}
   movementSettings:
-    ForwardSpeed: 8
-    BackwardSpeed: 8
-    StrafeSpeed: 8
+    ForwardSpeed: 4
+    BackwardSpeed: 4
+    StrafeSpeed: 4
     RunMultiplier: 2
     RunKey: 304
     JumpForce: 50
@@ -484,6 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d1cf0053b5c924a9ac5f50fbba4516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFlying: 0
 --- !u!1 &5593004439095020958
 GameObject:
   m_ObjectHideFlags: 0

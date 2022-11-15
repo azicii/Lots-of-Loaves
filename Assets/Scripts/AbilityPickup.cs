@@ -2,24 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaundryKey : MonoBehaviour
+public class AbilityPickup : MonoBehaviour
 {
-    [SerializeField] GameObject key;
+    [SerializeField] GameObject ability;
     [SerializeField] float rotationSpeed = 0.5f;
     [SerializeField] float explosionForce = 500f;
     [SerializeField] float explosionRadius = 10f;
     [SerializeField] GameObject explosion;
+    [SerializeField] GameObject moose;
 
     void Update()
     {
         transform.Rotate(0, rotationSpeed, 0);
     }
+    //When the player makes contact with the pickup, they will access the 
+    //abilities array in the abilityswitcher script attached to the player.
+    //The abilities array is replaced with a new version of itself that has 
+    //an additional element. The additional element will be the 'ability' serialized above.
+    //the player will also create an explosion and destroy this pickup in 5 seconds. 
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            key.SetActive(true);
+            moose.GetComponent<AbilitySwitcher>().AddNewAbility(ability);
             Explosion();
             GetComponent<Renderer>().enabled = false;
             GetComponent<MeshCollider>().enabled = false;
@@ -29,7 +35,7 @@ public class LaundryKey : MonoBehaviour
 
     void Explosion()
     {
-        Debug.Log("BOOM!");
+        Debug.Log("AbilityAqcuired!");
         ParticleSystem[] particleSystems = explosion.GetComponentsInChildren<ParticleSystem>();
         foreach (ParticleSystem explosion in particleSystems)
         {
