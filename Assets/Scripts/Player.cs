@@ -48,6 +48,4 @@ public class Player : MonoBehaviour
             isFlying = false;
         }
     }
-
-   
 }

@@ -13,6 +13,7 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] float rotationSpeed = 0.5f;
 
     Player player;
+    bool aqcuired = false;
 
     void Start()
     {
@@ -21,7 +22,10 @@ public class ItemPickup : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(0, rotationSpeed, 0);
+        if (!aqcuired)
+        {
+            transform.Rotate(0, rotationSpeed, 0);
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -33,15 +37,23 @@ public class ItemPickup : MonoBehaviour
                 item.SetActive(true);
                 x.SetActive(true);
             }
+            aqcuired = true;
             hoorayVFX.Play();
-            GetComponentInChildren<Light>().enabled = false;
-            GetComponent<Renderer>().enabled = false;
-            GetComponent<MeshCollider>().enabled = false;
+            DisableItem();
             AddItem();
             Destroy(this.gameObject, 5);
         }
     }
-    
+
+    //prevents the player from accessing the item after being aqcuired
+    private void DisableItem()
+    {
+        GetComponentInChildren<Light>().enabled = false;
+        GetComponent<Renderer>().enabled = false;
+        GetComponent<MeshCollider>().enabled = false;
+    }
+
+    //adds the item to the "player inventory". Updates item canvas. 
     void AddItem()
     {
         player.itemNumber++;
