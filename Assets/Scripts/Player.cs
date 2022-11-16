@@ -1,22 +1,28 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
-using static UnityEngine.GraphicsBuffer;
 
 public class Player : MonoBehaviour
 {
+    //The canvas element that displays the number of currently held items
+    //Used in ItemPickup.cs
+    public TextMeshProUGUI numberOfItems;
+
     Rigidbody rb;
     RigidbodyFirstPersonController controller;
-    Collider _collider;
     public bool isFlying;
+
+    //The number of items that the player currently has.
+    //Used in ItemPickup.cs
+    public int itemNumber;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         controller = GetComponent<RigidbodyFirstPersonController>();
-        _collider = GetComponent<Collider>();    
-        
+
+        itemNumber = 0;
     }
     public void TakeDamage(Vector3 impactForce)
     {
