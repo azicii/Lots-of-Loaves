@@ -27,7 +27,7 @@ public class AbilityPickup : MonoBehaviour
         {
             moose.GetComponent<AbilitySwitcher>().AddNewAbility(ability);
             Explosion();
-            GetComponent<Light>().enabled = false;
+            GetComponentInChildren<Light>().enabled = false;
             GetComponent<Renderer>().enabled = false;
             GetComponent<MeshCollider>().enabled = false;
             Destroy(this.gameObject, 5);
