@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.LowLevel;
 
 public class AbilitySwitcher : MonoBehaviour
 {
@@ -14,11 +10,11 @@ public class AbilitySwitcher : MonoBehaviour
     {
         SetAbilityActive();
     }
+
     void Update()
     {
         int previousAbility = abilityIndex;
 
-        ProcessKeyInput();
         ProcessEandQkey();
 
         if (previousAbility != abilityIndex)
@@ -26,22 +22,7 @@ public class AbilitySwitcher : MonoBehaviour
             SetAbilityActive();
         }
     }
-    void ProcessKeyInput()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && abilities.Length >= 1)
-        {
-            abilityIndex = 0;
-            SetAbilityActive();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && abilities.Length >= 2)
-        {
-            abilityIndex = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && abilities.Length >= 3)
-        {
-            abilityIndex = 2;
-        }
-    }
+
     void ProcessEandQkey()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -67,6 +48,55 @@ public class AbilitySwitcher : MonoBehaviour
             }
         }
     }
+
+    void SetAbilityActive()
+    {
+        int currentAbility = 0;
+
+        foreach (GameObject ability in abilities)
+        {
+            if (abilityIndex == currentAbility)
+            {
+                ability.SetActive(true);
+            }
+            else
+            {
+                ability.SetActive(false);
+            }
+            currentAbility++;
+        }
+    }
+    
+    //method below is not very good performance wise. It adds a new item to the 
+    //array when it is called by concatenating a new array to the old abilities
+    //and storing the new concatenated array as abilities. Since there are only 3 
+    //abilities in the game it is not a problem. 
+    public void AddNewAbility(GameObject ability)
+    {
+        abilities = abilities.Concat(new GameObject[] { ability }).ToArray();
+        abilityIndex = abilities.Length - 1;
+        SetAbilityActive();
+    }
+
+    //Additional ability switch input. Uncomment if becomes necessary.
+    ////If ever want to implement numberkey input ability switch functionality,
+    ////uncomment the function below
+    //void ProcessKeyInput()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Alpha1) && abilities.Length >= 1)
+    //    {
+    //        abilityIndex = 0;
+    //        SetAbilityActive();
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.Alpha2) && abilities.Length >= 2)
+    //    {
+    //        abilityIndex = 1;
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.Alpha3) && abilities.Length >= 3)
+    //    {
+    //        abilityIndex = 2;
+    //    }
+    //}
 
     ////If ever want to implement scroll wheel ability switch functionality,
     ////uncomment the function below
@@ -95,32 +125,4 @@ public class AbilitySwitcher : MonoBehaviour
     //        }
     //    }
     //}
-
-    //This method is not very good performance wise. It adds a new item to the 
-    //array when it is called by creating a copy of the original array with one more 
-    //space and moving all elements to the new array. Since there are only 3 
-    //abilities in the game it is not a problem. 
-    public void AddNewAbility(GameObject ability)
-    {
-        abilities = abilities.Concat(new GameObject[] { ability }).ToArray();
-        abilityIndex = abilities.Length - 1;
-        SetAbilityActive();
-    }
-    void SetAbilityActive()
-    {
-        int currentAbility = 0;
-
-        foreach (GameObject ability in abilities)
-        {
-            if (abilityIndex == currentAbility)
-            {
-                ability.SetActive(true);
-            }
-            else
-            {
-                ability.SetActive(false);
-            }
-            currentAbility++;
-        }
-    }
 }
