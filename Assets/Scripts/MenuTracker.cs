@@ -11,10 +11,9 @@ public class MenuTracker : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void ReloadLevel()
+    public void StartGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
         this.gameObject.SetActive(false);
     }
 
@@ -24,12 +23,12 @@ public class MenuTracker : MonoBehaviour
         Application.Quit();
     }
 
-    void OnLevelWasLoaded(int level)
-    {
-        if (level == 0)
-        {
-            Time.timeScale = 1;
-            this.gameObject.SetActive(false);
-        }
-    }
+    //void OnLevelWasLoaded(int level)
+    //{
+    //    if (level == 0)
+    //    {
+    //        Time.timeScale = 1;
+    //        this.gameObject.SetActive(false);
+    //    }
+    //}
 }

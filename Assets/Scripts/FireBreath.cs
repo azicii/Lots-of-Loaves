@@ -8,6 +8,7 @@ using UnityEngine.AI;
 public class FireBreath : MonoBehaviour
 {
     [SerializeField] GameObject fireVFX;
+    [SerializeField] GameObject fireEmblem;
     List<GameObject> affectedObjects = new();
 
     void OnTriggerEnter(Collider other)
@@ -133,5 +134,16 @@ public class FireBreath : MonoBehaviour
                 affectedObjects.Remove(item);
             }
         }
+    }
+
+    //Enables/disables the associated UI emblem that appears on screen
+    void OnEnable()
+    {
+        fireEmblem.SetActive(true);
+    }
+
+    void OnDisable()
+    {
+        fireEmblem.SetActive(false);
     }
 }

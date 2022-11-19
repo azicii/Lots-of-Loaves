@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: {fileID: 0}
   rotationSpeed: 0.5
-  explosionForce: 400
+  explosionForce: 600
   explosionRadius: 10
   explosion: {fileID: 739748795492186441}
 --- !u!1001 &49677728253123926

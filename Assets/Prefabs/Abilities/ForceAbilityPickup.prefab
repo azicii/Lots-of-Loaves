@@ -4923,7 +4923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 0}
-  rotationSpeed: 0.5
+  rotationSpeed: 0.2
   explosionForce: 500
   explosionRadius: 10
   explosion: {fileID: 2249253345257106400}

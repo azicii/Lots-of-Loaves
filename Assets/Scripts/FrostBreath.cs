@@ -8,6 +8,7 @@ using UnityEngine.AI;
 public class FrostBreath : MonoBehaviour
 {
     [SerializeField] ParticleSystem frostVFX;
+    [SerializeField] GameObject iceEmblem;
     public List<GameObject> affectedObjects = new();
 
     void OnTriggerEnter(Collider other)
@@ -116,5 +117,16 @@ public class FrostBreath : MonoBehaviour
                 affectedObjects.Remove(item);
             }
         }
+    }
+
+    //Enables/disables the associated UI emblem that appears on screen
+    void OnEnable()
+    {
+        iceEmblem.SetActive(true);
+    }
+
+    void OnDisable()
+    {
+        iceEmblem.SetActive(false);
     }
 }

@@ -26,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4800101724012218979}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 40.474907, y: -0.42116833, z: 60.896553}
-  m_LocalScale: {x: 0.57961804, y: 1, z: 1}
+  m_LocalScale: {x: 0.48144814, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4800101724207786185}
@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 4800101724207786186}
   - component: {fileID: 4800101724207786187}
   - component: {fileID: 4800101724207786184}
+  - component: {fileID: 2035206576}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -196,3 +197,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2035206576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800101724207786190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d9a38d4d53f6843b09d8d810471236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  requiredItemNumber: 5

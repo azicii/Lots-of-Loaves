@@ -11,6 +11,7 @@ public class BarkAttack : MonoBehaviour
     [SerializeField] float explosionRadius = 15f;
     [SerializeField] float upwardsForce = 2f;
     [SerializeField] ParticleSystem forceSmoke;
+    [SerializeField] GameObject forceEmblem;
 
     List<GameObject> affectedObjects = new();
 
@@ -93,5 +94,16 @@ public class BarkAttack : MonoBehaviour
                 affectedObjects.Remove(item);
             }
         }
+    }
+
+    //Enables/disables the associated UI emblem that appears on screen
+    void OnEnable()
+    {
+        forceEmblem.SetActive(true);
+    }
+
+    void OnDisable()
+    {
+        forceEmblem.SetActive(false);
     }
 }
