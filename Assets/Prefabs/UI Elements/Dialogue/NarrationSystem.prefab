@@ -33,10 +33,10 @@ RectTransform:
   m_Father: {fileID: 6068377456826567121}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 216, y: -197.81}
-  m_SizeDelta: {x: 244.2563, y: 21.971}
+  m_AnchorMin: {x: 0.19720557, y: 0}
+  m_AnchorMax: {x: 0.9101995, y: 0.081843026}
+  m_AnchoredPosition: {x: -0.6923828, y: -0.1184082}
+  m_SizeDelta: {x: 0.16079998, y: -0.7233}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1200799791
 CanvasRenderer:
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press *Space" to continue/skip...
+  m_text: Press *Space* to continue/skip...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -93,8 +93,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -453,7 +453,7 @@ MonoBehaviour:
   textUI: {fileID: 8181112569480476367}
   scrollRect: {fileID: 6462165642551371722}
   fontSizeModifier: 100
-  fontSizeRange: {x: 50, y: 50}
+  fontSizeRange: {x: 60, y: 60}
   timePadding: 0
   typing: 1
   defaultDelayBetweenLetters: 0.1
@@ -493,10 +493,10 @@ RectTransform:
   m_Father: {fileID: 599826944025645846}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.3183077, y: 0}
+  m_AnchorMin: {x: 0.384, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
-  m_SizeDelta: {x: 41.2274, y: 0}
+  m_AnchoredPosition: {x: 10.1604, y: 0.000091552734}
+  m_SizeDelta: {x: 20.9068, y: -0.00021362}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &16092237536682692
 CanvasRenderer:
@@ -802,7 +802,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: f0f0f74364123fd4e9e52cbecdce16b4, type: 3}
-    m_FontSize: 63
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -891,7 +891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7350124505165107289, guid: bbada9a31d3512b44a3410a55281244d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.40000916
+      value: 0.3999939
       objectReference: {fileID: 0}
     - target: {fileID: 7350124505165107289, guid: bbada9a31d3512b44a3410a55281244d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -908,10 +908,6 @@ PrefabInstance:
     - target: {fileID: 7350124505165107290, guid: bbada9a31d3512b44a3410a55281244d, type: 3}
       propertyPath: m_Name
       value: Coco
-      objectReference: {fileID: 0}
-    - target: {fileID: 7350124505165107290, guid: bbada9a31d3512b44a3410a55281244d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbada9a31d3512b44a3410a55281244d, type: 3}
