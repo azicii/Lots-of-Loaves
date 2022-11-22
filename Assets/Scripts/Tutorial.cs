@@ -9,9 +9,7 @@ public class Tutorial : MonoBehaviour
 {
     TutorialScript currentTutorial;
 
-    [SerializeField] Collider movementTutorial;
     [SerializeField] Canvas canvas;
-    public float tutorialDisplayTime = 3f;
     [SerializeField] TextMeshProUGUI _tutorialText;
 
     //triggering the tutorialscript colliders will enable the canvas to show
@@ -23,16 +21,16 @@ public class Tutorial : MonoBehaviour
         {
             currentTutorial = other.GetComponent<TutorialScript>();
 
-            StartCoroutine(DisplayTutorial());
+            StartCoroutine(DisplayTutorial(currentTutorial));
         }
     }
 
-    IEnumerator DisplayTutorial()
+    IEnumerator DisplayTutorial(TutorialScript script)
     {
         canvas.gameObject.SetActive(true);
-        _tutorialText.text = currentTutorial.tutorialText;
+        _tutorialText.text = script.tutorialText;
 
-        yield return new WaitForSeconds(tutorialDisplayTime);
+        yield return new WaitForSeconds(script.tutorialTime);
 
         canvas.gameObject.SetActive(false);
     }

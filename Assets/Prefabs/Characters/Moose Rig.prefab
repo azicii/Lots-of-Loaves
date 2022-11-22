@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.7277144}
   m_AnchorMax: {x: 0.40852532, y: 1}
-  m_AnchoredPosition: {x: 1.3500366, y: -0.66000366}
+  m_AnchoredPosition: {x: 1.350029, y: -0.66000366}
   m_SizeDelta: {x: 2.3099976, y: 2.119995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &417029199
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 60.89
 --- !u!1 &1193684754
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,13 +89,14 @@ GameObject:
   - component: {fileID: 1193684757}
   - component: {fileID: 1193684756}
   - component: {fileID: 5850136293243206425}
+  - component: {fileID: 1193684760}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Tutorial Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1193684755
 RectTransform:
   m_ObjectHideFlags: 0
@@ -129,7 +130,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 5593004439094824890}
-  m_PlaneDistance: 3.9
+  m_PlaneDistance: 0.36
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -192,23 +193,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeType: 0
-  fadingDuration: 1
+  fadingDuration: 3
   _startFadeOnAwake: 1
   onCompleteEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5850136293243206425}
-        m_TargetAssemblyTypeName: FadeInUIElement, Assembly-CSharp
-        m_MethodName: StartFading
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!225 &1193684760
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193684754}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!1 &1347168890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1347168891}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1347168891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347168890}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.609, z: 3.066}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5593004439095382456}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &821011181796508945
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07519962, y: 0.7993672}
   m_AnchorMax: {x: 0.33900002, y: 0.91881645}
-  m_AnchoredPosition: {x: -0.3300171, y: 1.7200012}
+  m_AnchoredPosition: {x: -0.3300705, y: 1.7200012}
   m_SizeDelta: {x: 3.350006, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2797821967789191273
@@ -468,11 +500,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50.5
+  m_fontSize: 29.75
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 6
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -706,7 +738,7 @@ Transform:
   m_GameObject: {fileID: 5593004439095020956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 21.97, y: 0.43, z: 13.73}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5593004439095382458}
@@ -716,6 +748,7 @@ Transform:
   - {fileID: 6424866374149480623}
   - {fileID: 4361829521729808067}
   - {fileID: 1193684755}
+  - {fileID: 1347168891}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -742,7 +775,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5593004439095020956}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3639065
@@ -763,9 +796,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 5593004439094824890}
   movementSettings:
-    ForwardSpeed: 4
-    BackwardSpeed: 4
-    StrafeSpeed: 4
+    ForwardSpeed: 3
+    BackwardSpeed: 3
+    StrafeSpeed: 3
     RunMultiplier: 2
     RunKey: 304
     JumpForce: 50
@@ -804,20 +837,24 @@ MonoBehaviour:
       m_RotationOrder: 4
     CurrentTargetSpeed: 8
   mouseLook:
-    XSensitivity: 2
-    YSensitivity: 2
+    XSensitivity: 1
+    YSensitivity: 1
     clampVerticalRotation: 1
     MinimumX: -5
     MaximumX: 0
     smooth: 1
-    smoothTime: 18
+    smoothTime: 10
     lockCursor: 1
   advancedSettings:
-    groundCheckDistance: 0.1
+    groundCheckDistance: 1.1
     stickToGroundHelperDistance: 0.6
     slowDownRate: 20
     airControl: 1
-    shellOffset: 0
+    shellOffset: 0.1
+  groundCheck: {fileID: 1347168891}
+  jumpableObjects:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!114 &919569614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,10 +882,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f35bc323e70c93e45bcb30e3553a0fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementTutorial: {fileID: 0}
   canvas: {fileID: 1193684758}
-  tutorialDisplayTime: 3
-  _tutorialText: {fileID: 0}
+  _tutorialText: {fileID: 4491141043606481052}
 --- !u!1 &5593004439095020958
 GameObject:
   m_ObjectHideFlags: 0
