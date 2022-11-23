@@ -27,6 +27,7 @@ namespace Narrate {
         public float ResetCooldown = 0;     //how many seconds to delay resetting by
         public float delayPlayingBy = 0;
         private bool resetting; //if this clip is currently in the process of resetting itself, is true. else false
+        public bool isPlaying = false; //AZIZ ADDED THIS
 
         //The reaction that should occur after a play attempt
         public enum Reaction {
@@ -46,6 +47,7 @@ namespace Narrate {
         }
 
         IEnumerator PlayNarration() {
+            
             if (delayPlayingBy > 0)
                 yield return new WaitForSeconds(delayPlayingBy);
             //play from NarrationList
@@ -70,6 +72,7 @@ namespace Narrate {
 
 
         public void PlayingFinished(bool success) {
+
             if (success)
                 React(OnSuccess);
             else
