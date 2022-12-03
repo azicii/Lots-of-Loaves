@@ -9,7 +9,12 @@ public class UICharacterDialogueSelector : MonoBehaviour
     [SerializeField] GameObject character;
 
     public bool insideDistanceArea;
-
+    
+    //in order for this script to function correctly, need to make sure 
+    //that a collider is attached to this gameobject surrounding the character. The 
+    //collider determines whether to activate the character UI model in the narrationsystem. 
+    //The "subtitles" gameobject under the narration system and the respective character
+    //this gameobject references which is also a child of the narration system should also be serialized 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
