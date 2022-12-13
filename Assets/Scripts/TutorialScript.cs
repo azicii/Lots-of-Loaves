@@ -11,6 +11,9 @@ public class TutorialScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject, tutorialTime);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject, tutorialTime);
+        }
     }
 }

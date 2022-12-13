@@ -127,7 +127,6 @@ GameObject:
   - component: {fileID: 5374319278291167194}
   - component: {fileID: 5451711745659825701}
   - component: {fileID: 2360764556785797102}
-  - component: {fileID: 6135070650327674919}
   - component: {fileID: 2056246131}
   m_Layer: 0
   m_Name: Elder Pine's Narration Trigger
@@ -217,37 +216,6 @@ MonoBehaviour:
   subtitlesGameObject: {fileID: 0}
   character: {fileID: 0}
   insideDistanceArea: 0
---- !u!114 &6135070650327674919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6135070649649774440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0738bd0a0e1f124c8bf27ea33ac57ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UseNarrationList: 1
-  narrationList: {fileID: 6135070649145320279}
-  theNarration:
-    busyBehavior: 0
-    singleAudio_MultiSub: 0
-    mainAudio: {fileID: 0}
-    phrases: []
-    LoopAudioForDuration: 0
-    expanded: 0
-    lastCalculatedHeight: 16
-    useSmartSubs: 0
-  OnFailure: 4
-  OnSuccess: 4
-  ResetCooldown: 0
-  delayPlayingBy: 0
-  isPlaying: 0
-  is2D: 0
-  triggeredBy: {fileID: 0}
-  proximity: 1
 --- !u!135 &2056246131
 SphereCollider:
   m_ObjectHideFlags: 0

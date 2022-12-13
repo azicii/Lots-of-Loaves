@@ -66,6 +66,7 @@ MonoBehaviour:
   OnSuccess: 0
   ResetCooldown: 0
   delayPlayingBy: 0
+  isPlaying: 0
   is2D: 0
   triggeredBy: {fileID: 0}
   proximity: 5
@@ -85,3 +86,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subtitlesGameObject: {fileID: 0}
   character: {fileID: 0}
+  insideDistanceArea: 0

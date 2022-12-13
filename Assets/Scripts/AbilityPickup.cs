@@ -26,12 +26,18 @@ public class AbilityPickup : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             moose.GetComponent<AbilitySwitcher>().AddNewAbility(ability);
+            GetComponent<Event>().isTriggered = true;
             Explosion();
-            GetComponentInChildren<Light>().enabled = false;
-            GetComponent<Renderer>().enabled = false;
-            GetComponent<MeshCollider>().enabled = false;
-            Destroy(this.gameObject, 5);
+            DestroyLoaf();
         }
+    }
+
+    void DestroyLoaf()
+    {
+        GetComponentInChildren<Light>().enabled = false;
+        GetComponent<Renderer>().enabled = false;
+        GetComponent<MeshCollider>().enabled = false;
+        Destroy(this.gameObject, 5);
     }
 
     void Explosion()

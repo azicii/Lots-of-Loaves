@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEditor.Progress;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -34,11 +30,11 @@ public class EnemyAI : MonoBehaviour
     {
         Physics.IgnoreCollision(_collider, player);
         distanceToTarget = Vector3.Distance(target.position, transform.position);
+
         if (isProvoked)
         {
             EngageTarget();
         }
-
         else if (distanceToTarget <= chaseRange)
         {
             isProvoked = true;
