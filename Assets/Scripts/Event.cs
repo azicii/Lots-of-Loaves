@@ -7,7 +7,12 @@ public class Event : MonoBehaviour
 {
     [SerializeField] GameObject eventObjects;
 
-    public bool isTriggered = false;
+    public bool isTriggered;
+
+    void Start()
+    {
+        isTriggered = false;
+    }
 
     private void Update()
     {

@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1555035615427975394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 111.9, y: -24.613, z: 135.6}
-  m_LocalScale: {x: 14.587799, y: 14.587799, z: 14.587799}
+  m_LocalScale: {x: 14.587801, y: 14.587797, z: 14.5878}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5374319278291167194}
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 93caadf4359ae8143aad35b3145d31af, type: 2}
+  - {fileID: 2100000, guid: 55d4a997d4ada4c42b18e2adb4cd244e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -125,11 +125,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5374319278291167194}
-  - component: {fileID: 5451711745659825701}
   - component: {fileID: 2360764556785797102}
   - component: {fileID: 2056246131}
+  - component: {fileID: 8495821462034687143}
   m_Layer: 0
-  m_Name: Elder Pine's Narration Trigger
+  m_Name: Proximity Narration Trigger - 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,57 +150,6 @@ Transform:
   m_Father: {fileID: 1555035615428199618}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5451711745659825701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6135070649649774440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b64140504f9afa49890af388446118e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UseNarrationList: 0
-  narrationList: {fileID: 0}
-  theNarration:
-    busyBehavior: 0
-    singleAudio_MultiSub: 0
-    mainAudio: {fileID: 8300000, guid: 2d58590ef2b03e54192f78964f8be6e4, type: 3}
-    phrases:
-    - audio: {fileID: 8300000, guid: e86652dcdb970cc4fa39209083ba2c68, type: 3}
-      text: Hello little puppy. I am the elder pine. How can I help you? :)
-      duration: 3
-      drawAudio: 1
-      lastCalculatedHeight: 120
-      move: 0
-    - audio: {fileID: 8300000, guid: e86652dcdb970cc4fa39209083ba2c68, type: 3}
-      text: To reach your goal, you must journey to the...
-      duration: 3
-      drawAudio: 1
-      lastCalculatedHeight: 120
-      move: 0
-    - audio: {fileID: 8300000, guid: e86652dcdb970cc4fa39209083ba2c68, type: 3}
-      text: 'Uhhh... I forgot. '
-      duration: 3
-      drawAudio: 1
-      lastCalculatedHeight: 120
-      move: 0
-    LoopAudioForDuration: 0
-    expanded: 0
-    lastCalculatedHeight: 16
-    useSmartSubs: 0
-  OnFailure: 2
-  OnSuccess: 2
-  ResetCooldown: 0
-  delayPlayingBy: 0
-  isPlaying: 0
-  is2D: 0
-  triggeredBy: {fileID: 0}
-  proximity: 16.58
-  timeInProximityToTrigger: 0
-  timeMustBeConsecutive: 0
 --- !u!114 &2360764556785797102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,3 +178,56 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 20.023968
   m_Center: {x: 0, y: 0, z: 1.5278358}
+--- !u!114 &8495821462034687143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6135070649649774440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b64140504f9afa49890af388446118e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseNarrationList: 0
+  narrationList: {fileID: 0}
+  theNarration:
+    busyBehavior: 0
+    singleAudio_MultiSub: 0
+    mainAudio: {fileID: 8300000, guid: 2d58590ef2b03e54192f78964f8be6e4, type: 3}
+    phrases:
+    - audio: {fileID: 8300000, guid: e86652dcdb970cc4fa39209083ba2c68, type: 3}
+      text: 'Hello little forest creature. I am the keeper of this beautiful forest.
+        Some refer to me as the Elder Pine, but you can call me Jeffrey. '
+      duration: 0
+      drawAudio: 1
+      lastCalculatedHeight: 120
+      move: 0
+    - audio: {fileID: 8300000, guid: e86652dcdb970cc4fa39209083ba2c68, type: 3}
+      text: 'To receive the loaf of bread that you seek, you must travel up towards
+        the path behind me. '
+      duration: 0
+      drawAudio: 1
+      lastCalculatedHeight: 120
+      move: 0
+    - audio: {fileID: 8300000, guid: e86652dcdb970cc4fa39209083ba2c68, type: 3}
+      text: 'Please return to me after you have helped your friend. '
+      duration: 0
+      drawAudio: 1
+      lastCalculatedHeight: 120
+      move: 0
+    LoopAudioForDuration: 0
+    expanded: 1
+    lastCalculatedHeight: 76
+    useSmartSubs: 0
+  OnFailure: 2
+  OnSuccess: 2
+  ResetCooldown: 0
+  delayPlayingBy: 0
+  isPlaying: 0
+  is2D: 0
+  triggeredBy: {fileID: 0}
+  proximity: 16.58
+  timeInProximityToTrigger: 0
+  timeMustBeConsecutive: 0

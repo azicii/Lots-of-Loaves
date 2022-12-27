@@ -8,7 +8,7 @@ public class UICharacterDialogueSelector : MonoBehaviour
     [SerializeField] GameObject subtitlesGameObject;
     [SerializeField] GameObject character;
 
-    public bool insideDistanceArea;
+    [SerializeField] bool insideDistanceArea;
     
     //in order for this script to function correctly, need to make sure 
     //that a collider is attached to this gameobject surrounding the character. The 
