@@ -35,7 +35,7 @@ public class BarkAttack : MonoBehaviour
 
     void Update()
     {
-        RemoveAffectedObjects();
+        //RemoveAffectedObjects();
         if (Input.GetMouseButtonDown(0))
         {
             ShootBark();
@@ -73,6 +73,8 @@ public class BarkAttack : MonoBehaviour
         Rigidbody rb = item.GetComponent<Rigidbody>();
         var forceModifier = item.GetComponent<ForceModifier>();
 
+        Debug.Log($"{item.name} was blasted");
+
         //Check to see if item in affectedObjects has a forceModifier script attached, if not just just default barkForce
         float forwardForce = forceModifier != null ? barkForce * forceModifier.forwardMod : barkForce;
         float upForce = forceModifier != null ? upwardsForce * forceModifier.upwardsMod : upwardsForce;
@@ -85,16 +87,16 @@ public class BarkAttack : MonoBehaviour
                             );
     }
 
-    void RemoveAffectedObjects()
-    {
-        foreach (GameObject item in affectedObjects.ToList())
-        {
-            if (item == null)
-            {
-                affectedObjects.Remove(item);
-            }
-        }
-    }
+    //void RemoveAffectedObjects()
+    //{
+    //    foreach (GameObject item in affectedObjects.ToList())
+    //    {
+    //        if (item == null)
+    //        {
+    //            affectedObjects.Remove(item);
+    //        }
+    //    }
+    //}
 
     //Enables/disables the associated UI emblem that appears on screen
     void OnEnable()

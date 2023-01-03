@@ -17,13 +17,17 @@ public class EnemyAI : MonoBehaviour
     Vector3 direction;
     Collider player;
     Collider _collider;
+    ParticleSystem dizzyVFX;
+    AudioSource audioSource;
 
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         player = FindObjectOfType<Player>().GetComponent<Collider>();
         _collider = GetComponent<Collider>();
+        dizzyVFX = GetComponentInChildren<ParticleSystem>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -53,14 +57,25 @@ public class EnemyAI : MonoBehaviour
             FaceTarget();
             AttackTarget();
         }
+
+        if (distanceToTarget > chaseRange)
+        {
+            StopChasing();   
+        }
     }
 
     void ChaseTarget()
     {
         navMeshAgent.SetDestination(target.position);
 
-        animator.SetTrigger("isProvoked");
+        animator.SetBool("isProvoked", true);
         animator.SetBool("isAttacking", false);
+    }
+
+    void StopChasing()
+    {
+        navMeshAgent.isStopped = true;
+        animator.SetBool("isProvoked", false);
     }
 
     void AttackTarget()
@@ -85,12 +100,16 @@ public class EnemyAI : MonoBehaviour
     {
         if (isDead) return;
 
+        Debug.Log($"{this.gameObject.name} has died");
+
         isDead = true;
         animator.enabled = false;
 
         Debug.Log($"{this.gameObject.name} was slain");
         GetComponent<NavMeshAgent>().enabled = false;
         GetComponent<EnemyAI>().enabled = false;
+        dizzyVFX.Play();
+        audioSource.Play();
     }
 
     void FaceTarget()

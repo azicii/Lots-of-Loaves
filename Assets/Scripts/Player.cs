@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     //Used in ItemPickup.cs
     public TextMeshProUGUI numberOfItems;
 
+    Collider _collider;
     Rigidbody rb;
     RigidbodyFirstPersonController controller;
     public bool isFlying;
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         controller = GetComponent<RigidbodyFirstPersonController>();
+        _collider = GetComponent<Collider>();
 
         itemNumber = 0;
     }
@@ -47,5 +49,10 @@ public class Player : MonoBehaviour
         {
             isFlying = false;
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log($"moose hit {collision.collider.name}");
     }
 }
