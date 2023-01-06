@@ -23,7 +23,6 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         controller = GetComponent<RigidbodyFirstPersonController>();
         _collider = GetComponent<Collider>();
-
         itemNumber = 0;
     }
     public void TakeDamage(Vector3 impactForce)
@@ -50,6 +49,8 @@ public class Player : MonoBehaviour
             isFlying = false;
         }
     }
+
+    //use this code below whenever moose is bumping into some unknown object that cannot be seen in the scene or game view in the inspector. 
 
     private void OnCollisionEnter(Collision collision)
     {

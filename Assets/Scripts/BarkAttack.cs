@@ -14,6 +14,12 @@ public class BarkAttack : MonoBehaviour
     [SerializeField] GameObject forceEmblem;
 
     List<GameObject> affectedObjects = new();
+    Animator animator;
+
+    void Start()
+    {
+        animator = GetComponentInParent<Animator>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -46,6 +52,7 @@ public class BarkAttack : MonoBehaviour
     {
         Debug.Log("BARK");
         forceSmoke.Play();
+        animator.SetTrigger("Bark");
         foreach (GameObject item in affectedObjects.ToList())
         {
             if (!item.CompareTag("Player"))
@@ -66,6 +73,7 @@ public class BarkAttack : MonoBehaviour
                 ApplyBarkForce(item);
             }
         }
+        animator.SetTrigger("Bark");
     }
 
     void ApplyBarkForce(GameObject item)
