@@ -25,10 +25,10 @@ public class AbilityPickup : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            moose.GetComponent<AbilitySwitcher>().AddNewAbility(ability);
             GetComponent<Event>().isTriggered = true;
             Explosion();
             DestroyLoaf();
+            moose.GetComponent<AbilitySwitcher>().AddNewAbility(ability);
         }
     }
 

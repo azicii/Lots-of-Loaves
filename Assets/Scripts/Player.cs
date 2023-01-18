@@ -25,10 +25,12 @@ public class Player : MonoBehaviour
         _collider = GetComponent<Collider>();
         itemNumber = 0;
     }
+
     public void TakeDamage(Vector3 impactForce)
     {
         StartCoroutine(ApplyForce(impactForce));
     }
+
     IEnumerator ApplyForce(Vector3 impactForce)
     {
         //whenever enemies attack the player, this function applies a force to the 
@@ -51,7 +53,6 @@ public class Player : MonoBehaviour
     }
 
     //use this code below whenever moose is bumping into some unknown object that cannot be seen in the scene or game view in the inspector. 
-
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log($"moose hit {collision.collider.name}");

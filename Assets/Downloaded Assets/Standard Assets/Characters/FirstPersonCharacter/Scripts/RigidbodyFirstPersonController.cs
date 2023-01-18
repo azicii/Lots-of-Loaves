@@ -119,6 +119,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
+        private bool doubleJump;
+
 
         private void Start()
         {
@@ -132,9 +134,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             RotateView();
 
-            if (CrossPlatformInputManager.GetButtonDown("Jump") && !m_Jump)
+            if (CrossPlatformInputManager.GetButtonDown("Jump"))
             {
-                m_Jump = true;
+                if (!m_Jump || doubleJump)
+                {
+                    m_Jump = true;
+                    doubleJump = !doubleJump;
+                    Debug.Log("Jump!");
+                }
+            }
+
+            if (!m_Jump && m_IsGrounded)
+            {
+                doubleJump = false;
             }
         }
 
