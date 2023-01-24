@@ -35629,7 +35629,7 @@ GameObject:
   - component: {fileID: 7711958928888244870}
   - component: {fileID: 51674755}
   m_Layer: 0
-  m_Name: Coco
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

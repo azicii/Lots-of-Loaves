@@ -87,9 +87,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private CapsuleCollider m_Capsule;
         private float m_YRotation;
         private Vector3 m_GroundContactNormal;
-        private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded;
+        private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded, canDoubleJump;
         public Transform groundCheck;
         public LayerMask jumpableObjects;
+
+        public float doubleJumpForce = 2f;
+        AnimationStateController animatorScript;
 
 
         public Vector3 Velocity
@@ -127,6 +130,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
             mouseLook.Init (transform, cam.transform);
+
+            animatorScript = GetComponentInChildren<AnimationStateController>();
         }
 
 
@@ -136,17 +141,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if (CrossPlatformInputManager.GetButtonDown("Jump"))
             {
-                if (!m_Jump || doubleJump)
+                if (m_IsGrounded)
                 {
                     m_Jump = true;
-                    doubleJump = !doubleJump;
+                    canDoubleJump = true;
                     Debug.Log("Jump!");
                 }
-            }
-
-            if (!m_Jump && m_IsGrounded)
-            {
-                doubleJump = false;
+                else if (canDoubleJump)
+                {
+                    animatorScript.isDoubleJumping = true;
+                    m_RigidBody.velocity = Vector3.up * doubleJumpForce;
+                    canDoubleJump = false;
+                }
             }
         }
 

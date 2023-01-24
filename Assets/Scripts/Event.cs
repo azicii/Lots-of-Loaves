@@ -6,6 +6,7 @@ using UnityEngine;
 public class Event : MonoBehaviour
 {
     [SerializeField] GameObject eventObjects;
+    [SerializeField] int timeUntilEventBegin = 2;
 
     public bool isTriggered;
 
@@ -18,12 +19,14 @@ public class Event : MonoBehaviour
     {
         if (isTriggered)
         {
-            BeginEvent();
+            StartCoroutine(BeginEvent());
         }
     }
 
-    void BeginEvent()
+    IEnumerator BeginEvent()
     {
+        yield return new WaitForSeconds(timeUntilEventBegin);
+
         eventObjects.SetActive(true);
     }
 }

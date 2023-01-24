@@ -38,13 +38,16 @@ public class UICharacterDialogueSelector : MonoBehaviour
 
     void ActivateCharacterUI()
     {
-        if (subtitlesGameObject.activeSelf && insideDistanceArea == true)
+        if (character != null)
         {
-            character.SetActive(true);
-        }
-        else
-        {
-            character.SetActive(false);
+            if (subtitlesGameObject.activeSelf && insideDistanceArea == true)
+            {
+                character.SetActive(true);
+            }
+            else
+            {
+                character.SetActive(false);
+            }
         }
     }
 }

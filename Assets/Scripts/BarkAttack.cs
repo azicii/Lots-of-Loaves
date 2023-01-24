@@ -23,8 +23,8 @@ public class BarkAttack : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Rigidbody rb = other.GetComponent<Rigidbody>(); 
-        if (rb != null)
+        Rigidbody rb = other.GetComponent<Rigidbody>();
+        if (rb != null || other.CompareTag("BarkTrigger"))
         {
             affectedObjects.Add(other.gameObject);
         }
@@ -33,7 +33,7 @@ public class BarkAttack : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         Rigidbody rb = other.GetComponent<Rigidbody>();
-        if (rb != null)
+        if (rb != null || other.CompareTag("BarkTrigger"))
         {
             affectedObjects.Remove(other.gameObject);
         }
@@ -41,7 +41,6 @@ public class BarkAttack : MonoBehaviour
 
     void Update()
     {
-        //RemoveAffectedObjects();
         if (Input.GetMouseButtonDown(0))
         {
             ShootBark();
@@ -65,12 +64,18 @@ public class BarkAttack : MonoBehaviour
                     }
                     ApplyBarkForce(item);
                 }
-
-                if (item.CompareTag("Brick"))
+                else if (item.CompareTag("Brick"))
                 {
                     item.GetComponent<Rigidbody>().isKinematic = false;
                 }
-                ApplyBarkForce(item);
+                else if (item.CompareTag("BarkTrigger"))
+                {
+                    item.GetComponent<Event>().isTriggered = true;
+                }
+                else
+                {
+                    ApplyBarkForce(item);
+                }
             }
         }
         animator.SetTrigger("Bark");
@@ -95,16 +100,6 @@ public class BarkAttack : MonoBehaviour
                             );
     }
 
-    //void RemoveAffectedObjects()
-    //{
-    //    foreach (GameObject item in affectedObjects.ToList())
-    //    {
-    //        if (item == null)
-    //        {
-    //            affectedObjects.Remove(item);
-    //        }
-    //    }
-    //}
 
     //Enables/disables the associated UI emblem that appears on screen
     void OnEnable()
@@ -114,6 +109,9 @@ public class BarkAttack : MonoBehaviour
 
     void OnDisable()
     {
-        forceEmblem.SetActive(false);
+        if (forceEmblem != null)
+        {
+            forceEmblem.SetActive(false);
+        }
     }
 }

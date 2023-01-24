@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         Physics.IgnoreCollision(_collider, player);
-        Physics.IgnoreLayerCollision(6, 7);
+        Physics.IgnoreLayerCollision(7, 6);
         distanceToTarget = Vector3.Distance(target.position, transform.position);
 
         if (isProvoked)

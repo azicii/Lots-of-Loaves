@@ -10,6 +10,9 @@ public class AnimationStateController : MonoBehaviour
     int isWalkingrightHash;
     int isWalkingleftHash;
     int isRunningHash;
+    int isDoubleJumpingHash;
+
+    public bool isDoubleJumping;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,7 @@ public class AnimationStateController : MonoBehaviour
         isWalkingleftHash = Animator.StringToHash("isWalkingleft");
         isWalkingrightHash = Animator.StringToHash("isWalkingright");
         isRunningHash = Animator.StringToHash("isRunning");
+        isDoubleJumpingHash = Animator.StringToHash("isDoubleJumping");
     }
 
     // Update is called once per frame
@@ -35,6 +39,10 @@ public class AnimationStateController : MonoBehaviour
         bool leftPressed = Input.GetKey("a");
         bool rightPressed = Input.GetKey("d");
         bool shiftPressed = Input.GetKey(KeyCode.LeftShift);
+        bool jumpPressed = Input.GetButtonDown("Jump");
+
+        isDoubleJumping = animator.GetBool(isDoubleJumpingHash);
+
         //forward
         if (!isWalking && forwardPressed)
         {
@@ -88,6 +96,16 @@ public class AnimationStateController : MonoBehaviour
         {
             animator.SetBool(isRunningHash, false);
         }
-    }
 
+        //double jump
+        if (!isDoubleJumping && jumpPressed)
+        {
+            animator.SetBool(isDoubleJumpingHash, true);
+        }
+
+        if (isDoubleJumping)
+        {
+            animator.SetBool(isDoubleJumpingHash, false);
+        }
+    }
 }

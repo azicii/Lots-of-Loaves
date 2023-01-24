@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4661435515760519716}
   - component: {fileID: 1232560684170311422}
   - component: {fileID: 1492651857}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tree_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,6 +207,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Elder Pine's Narration Trigger
       objectReference: {fileID: 0}
+    - target: {fileID: 5063730882458355566, guid: 8290e2777624d2446b70e1261e030cf2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5063730882458355567, guid: 8290e2777624d2446b70e1261e030cf2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -302,6 +306,7 @@ MonoBehaviour:
   OnSuccess: 4
   ResetCooldown: 0
   delayPlayingBy: 0
+  isPlaying: 0
   is2D: 0
   triggeredBy: {fileID: 0}
   proximity: 1

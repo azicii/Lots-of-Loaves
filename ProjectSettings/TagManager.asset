@@ -11,6 +11,7 @@ TagManager:
   - Ice
   - Flammable
   - Subtitles
+  - BarkTrigger
   layers:
   - Default
   - TransparentFX
